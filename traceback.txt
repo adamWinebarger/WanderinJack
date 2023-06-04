@@ -1,0 +1,22 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/Scripts/ClassroomChallenge3.rpy", line 45, in script
+    jump challengeA3
+ScriptError: could not find label 'challengeA3'.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/Scripts/ClassroomChallenge3.rpy", line 45, in script
+    jump challengeA3
+  File "/home/adam/renpy-8.0.3-sdk/renpy/ast.py", line 1974, in execute
+    rv = renpy.game.script.lookup(target)
+  File "/home/adam/renpy-8.0.3-sdk/renpy/script.py", line 927, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'challengeA3'.
+
+Linux-6.1.0-9-amd64-x86_64-with-glibc2.36 x86_64
+Ren'Py 8.0.3.22090809
+Wanderin Jack Prototype 1 1.0
+Wed May 24 22:10:40 2023
