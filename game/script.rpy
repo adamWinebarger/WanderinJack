@@ -9,6 +9,8 @@
 define teacher = Character("Mrs. E.")
 define benny = Character("Benny")
 
+define points = 0
+
 # The game starts here.
 
 label start:
@@ -46,7 +48,31 @@ label start:
 
     #"Select a scenario:"
 
-    menu:
+    menu mainMenu:
+
+        # "Select a scenario:"
+        #
+        # "[mc] turns in homework":
+        #     $ currentChallenge = "ClassroomChallenge1"
+        #
+        # "[mc] knows the answer":
+        #     $ currentChallenge = "ClassroomChallenge2"
+        #
+        # "[mc] and the spelling test":
+        #     $ currentChallenge = "ClassroomChallenge3"
+
+        "Select a... select an option:"
+
+        "[mc] in the classroom":
+            jump classRoomSubMenu
+        "[mc] on the playground":
+            jump playgroundMenu
+        "[mc] at home":
+            jump atHomeMenu
+
+
+
+    menu classRoomSubMenu:
 
         "Select a scenario:"
 
@@ -57,9 +83,53 @@ label start:
             $ currentChallenge = "ClassroomChallenge2"
 
         "[mc] and the spelling test":
-            $ currentChallenge = "ClassroomChallenge3"
+            $ currentChallenge = "ClassroomChallenge5"
+
+        "[mc] sees a squirrel":
+            $ currentChallenge = "squirrelChallenge"
+
+        "[mc] and the math test":
+            $ currentChallenge = "classRoomChallenge3"
+
+        "Go Back":
+            jump mainMenu
 
     jump expression currentChallenge
+
+    # label classRoomSubMenu:
+    #
+    #     $ options = [
+    #         ("[mc] turns in homework", SetVariable("currentChallenge", "ClassroomChallenge1")),
+    #         ("[mc] knows the answer", SetVariable("currentChallenge", "ClassroomChallenge2")),
+    #         ("[mc] and the spelling test", SetVariable("currentChallenge", "ClassroomChallenge5")),
+    #         ("[mc] sees a squirrel", SetVariable("currentChallenge", "squirrelChallenge")),
+    #         ("[mc] and the math test", SetVariable("currentChallenge", "classRoomChallenge3")),
+    #         ("Go Back", Jump("mainMenu")),
+    #     ]
+    #
+    #     call screen scrollable_menu(options)
+
+    menu playgroundMenu:
+
+        "There is currently nothing here"
+
+        "Go back":
+            jump mainMenu
+
+    jump expression currentChallenge
+
+    menu atHomeMenu:
+
+        "There is currently nothing here"
+
+        "Go back":
+            jump mainMenu
+
+
+
+    #jump expression currentChallenge
+
+
 
 label badEnd:
 
@@ -72,5 +142,7 @@ label goodEnd:
     # Might be worth it to put a little firework effect or something here.
 
     "Congratulations! You did it!"
+    python:
+        points = points + 1
 
     return
