@@ -83,13 +83,16 @@ label start:
             $ currentChallenge = "ClassroomChallenge2"
 
         "[mc] and the spelling test":
-            $ currentChallenge = "ClassroomChallenge5"
+            $ currentChallenge = "ClassRoomChallenge3"
 
         "[mc] sees a squirrel":
             $ currentChallenge = "squirrelChallenge"
 
-        "[mc] and the math test":
-            $ currentChallenge = "classRoomChallenge3"
+        "[mc] forgets his math book":
+            $ currentChallenge = "ClassroomChallenge5"
+
+        "[mc] gets a new action figure":
+            $ currentChallenge = "classroomChallenge8"
 
         "Go Back":
             jump mainMenu
